@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- event_item -->
+    <dimen name="event_item_height">70dp</dimen>
+    <dimen name="event_item_vertical_margin">6dp</dimen>
+    <dimen name="event_item_horizontal_margin">3dp</dimen>
+</resources>
