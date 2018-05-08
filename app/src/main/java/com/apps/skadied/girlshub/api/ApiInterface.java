@@ -1,7 +1,7 @@
-package com.apps.skadied.eventsapp.api;
+package com.apps.skadied.girlshub.api;
 
-import com.apps.skadied.eventsapp.models.CreateEvent;
-import com.apps.skadied.eventsapp.models.EventModel;
+import com.apps.skadied.girlshub.models.CreatePerson;
+import com.apps.skadied.girlshub.models.PersonModel;
 
 import java.util.List;
 
@@ -18,15 +18,15 @@ import retrofit2.http.Path;
  */
 
 public interface ApiInterface {
-    @GET("events")
-    Call<List<EventModel>> listEvents();
+    @GET("people")
+    Call<List<PersonModel>> listPeople();
 
-    @POST("events")
-    Call<EventModel> createEvent(@Body CreateEvent event);
+    @POST("people")
+    Call<PersonModel> createPerson(@Body CreatePerson person);
 
-    @PUT("events/{id}")
-    Call<EventModel> updateEvent(@Path("id") int id, @Body CreateEvent eventModel);
+    @PUT("people/{id}")
+    Call<PersonModel> updatePerson(@Path("id") int id, @Body CreatePerson personModel);
 
-    @DELETE("events/{id}")
-    Call<EventModel> deleteEvent(@Path("id") int id);
+    @DELETE("people/{id}")
+    Call<PersonModel> deletePerson(@Path("id") int id);
 }

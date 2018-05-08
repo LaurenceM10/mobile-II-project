@@ -1,18 +1,16 @@
-package com.apps.skadied.eventsapp.ui.activities;
+package com.apps.skadied.girlshub.ui.activities;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.apps.skadied.eventsapp.R;
-import com.apps.skadied.eventsapp.api.Api;
-import com.apps.skadied.eventsapp.models.CreateEvent;
-import com.apps.skadied.eventsapp.models.EventModel;
+import com.apps.skadied.girlshub.R;
+import com.apps.skadied.girlshub.api.Api;
+import com.apps.skadied.girlshub.models.CreatePerson;
+import com.apps.skadied.girlshub.models.PersonModel;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -22,8 +20,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EditActivity extends AppCompatActivity {
-    private TextInputEditText title;
-    private TextInputEditText description;
+    private TextInputEditText name;
+    private TextInputEditText photo_url;
+    private TextInputEditText age;
+    private TextInputEditText phone;
+    private TextInputEditText address;
     private Button save;
 
     private int id;
@@ -44,8 +45,11 @@ public class EditActivity extends AppCompatActivity {
      * To init views
      */
     private void initViews() {
-        title = findViewById(R.id.title);
-        description = findViewById(R.id.description);
+        name = findViewById(R.id.name);
+        photo_url = findViewById(R.id.photo_url);
+        age = findViewById(R.id.age);
+        phone = findViewById(R.id.phone);
+        address = findViewById(R.id.address);
         save = findViewById(R.id.save);
     }
 
@@ -65,21 +69,22 @@ public class EditActivity extends AppCompatActivity {
      * to make an http request
      */
     private void fetchHttpRequest() {
-        CreateEvent event = new CreateEvent();
-        event.setTitle(title.getText().toString());
-        event.setDescription(description.getText().toString());
-        event.setCreatedAt(getCurrentDate());
+        CreatePerson person = new CreatePerson();
+        person.setPhoto_url(photo_url.getText().toString());
+        person.setAge(age.getText().toString());
+        person.setPhone(phone.getText().toString());
+        person.setAddress(address.getText().toString());
 
-        Call<EventModel> call = Api.instance().updateEvent(id, event);
-        call.enqueue(new Callback<EventModel>() {
+        Call<PersonModel> call = Api.instance().updatePerson(id, person);
+        call.enqueue(new Callback<PersonModel>() {
             @Override
-            public void onResponse(Call<EventModel> call, Response<EventModel> response) {
+            public void onResponse(Call<PersonModel> call, Response<PersonModel> response) {
                 Toast.makeText(EditActivity.this, "Modificado con exito", Toast.LENGTH_SHORT).show();
                 finish();
             }
 
             @Override
-            public void onFailure(Call<EventModel> call, Throwable t) {
+            public void onFailure(Call<PersonModel> call, Throwable t) {
                 Toast.makeText(EditActivity.this, "No se pudo modificar", Toast.LENGTH_SHORT).show();
             }
         });

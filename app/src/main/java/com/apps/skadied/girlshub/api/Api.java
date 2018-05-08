@@ -1,4 +1,4 @@
-package com.apps.skadied.eventsapp.api;
+package com.apps.skadied.girlshub.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class Api {
-    private final static String URL = "https://loopback-event-api.herokuapp.com/api";
+    private final static String URL = "https://girlshub-api.herokuapp.com/api";
 
     public static String getBase() {
         return URL + "/";
