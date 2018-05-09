@@ -5,7 +5,6 @@ package com.apps.skadied.girlshub.models;
  */
 
 public class AccessTokenModel {
-
     private String userId;
     private String id;
 

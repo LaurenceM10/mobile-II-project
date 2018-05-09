@@ -23,7 +23,6 @@ public interface ApiInterface {
     Call<List<PeopleModel>> listPeople();
 
 
-
     @POST("people")
     Call<PersonModel> createPerson(@Body CreatePerson person);
 

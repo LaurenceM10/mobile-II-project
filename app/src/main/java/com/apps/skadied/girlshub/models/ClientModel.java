@@ -5,7 +5,6 @@ package com.apps.skadied.girlshub.models;
  */
 
 public class ClientModel {
-
     private String username;
     private String password;
 
