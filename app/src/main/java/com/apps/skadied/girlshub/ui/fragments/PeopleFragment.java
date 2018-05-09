@@ -78,7 +78,7 @@ public class PeopleFragment extends Fragment {
             public void onResponse(@NonNull Call<List<PeopleModel>> call, @NonNull Response<List<PeopleModel>> response) {
                 if (response.body() != null){
                     progressBar.setVisibility(View.GONE);
-                    recyclerView.setAdapter(new GirlAdapter(response.body()));
+                    recyclerView.setAdapter(new GirlAdapter(response.body(), getActivity()));
                 } else {
                     Toast.makeText(getActivity(), "No se ha podido mostrar los datos", Toast.LENGTH_SHORT).show();
                 }
