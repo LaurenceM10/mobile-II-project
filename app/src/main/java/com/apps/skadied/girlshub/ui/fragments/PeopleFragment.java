@@ -17,9 +17,13 @@ import com.apps.skadied.girlshub.R;
 import com.apps.skadied.girlshub.api.Api;
 import com.apps.skadied.girlshub.models.PeopleModel;
 import com.apps.skadied.girlshub.ui.adapters.GirlAdapter;
+import com.tumblr.remember.Remember;
 
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,7 +53,20 @@ public class PeopleFragment extends Fragment {
 
         initViews(view);
         setupRecyclerView();
-        fetchGirls();
+        if (!isFirstTime()) {
+            fetchGirls();
+            storeFirstTime();
+        } else {
+            getFromDataBase();
+        }
+    }
+
+    private void storeFirstTime() {
+        Remember.putBoolean(IS_FIRST_TIME, true);
+    }
+
+    private boolean isFirstTime() {
+        return Remember.getBoolean(IS_FIRST_TIME, false);
     }
 
     /**
@@ -79,6 +96,8 @@ public class PeopleFragment extends Fragment {
                 if (response.body() != null){
                     progressBar.setVisibility(View.GONE);
                     recyclerView.setAdapter(new GirlAdapter(response.body(), getActivity()));
+                    sync(response.body());
+                    getFromDataBase();
                 } else {
                     Toast.makeText(getActivity(), "No se ha podido mostrar los datos", Toast.LENGTH_SHORT).show();
                 }
@@ -89,6 +108,38 @@ public class PeopleFragment extends Fragment {
 
             }
         });
+    }
+
+
+    private void sync(List<PeopleModel> peopleModels) {
+        for(PeopleModel peopleModel : peopleModels) {
+            store(peopleModel);
+        }
+    }
+
+    private void store(PeopleModel peopleModelFromApi) {
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+
+        PeopleModel peopleModel = realm.createObject(PeopleModel.class); // Create a new object
+
+        peopleModel.setId(peopleModelFromApi.getId());
+        peopleModel.setName(peopleModelFromApi.getName());
+        peopleModel.setAge(peopleModelFromApi.getAge());
+        peopleModel.setCareer(peopleModelFromApi.getCareer());
+        peopleModel.setPhoto_url(peopleModelFromApi.getPhoto_url());
+
+        realm.commitTransaction();
+    }
+
+    private void getFromDataBase() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<PeopleModel> query = realm.where(PeopleModel.class);
+
+        RealmResults<PeopleModel> results = query.findAll();
+
+        //GirlAdapter girlAdapter= new peopleFromDatabaseAdapter(results);
+        //recyclerView.setAdapter(GirlAdapter);
     }
 
 }

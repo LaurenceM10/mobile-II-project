@@ -22,7 +22,7 @@ import com.apps.skadied.girlshub.ui.fragments.PeopleFragment;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private static final String IS_FIRST_TIME = "is_first_time";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
