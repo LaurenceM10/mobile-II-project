@@ -54,44 +54,4 @@
         android:hint="******************"
         android:inputType="textPassword" />
 
-    <TextView
-        android:id="@+id/attemptsLeftTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tv_password"
-        android:layout_below="@+id/tv_password"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="48dp"
-        android:text="Attempts Left:"
-        android:visibility="invisible"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:onClick="authenticateLogin"
-        android:text="Ingresar" />
-
-    <TextView
-        android:id="@+id/numberOfRemainingLoginAttemptsTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/et_username"
-        android:layout_alignTop="@+id/attemptsLeftTV"
-        android:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/loginLockedTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/loginBtn"
-        android:layout_marginTop="35dp"
-        android:layout_centerHorizontal="true"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:visibility="invisible" />
-
 </RelativeLayout>
