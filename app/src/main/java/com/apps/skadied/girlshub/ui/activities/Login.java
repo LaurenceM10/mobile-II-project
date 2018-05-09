@@ -38,9 +38,9 @@ public class Login extends AppCompatActivity {
     }
 
     private void initViews() {
-        username = findViewById(R.id.et_username);
-        password = findViewById(R.id.et_password);
-        login = findViewById(R.id.btn_login);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        login = findViewById(R.id.login);
     }
 
     private void initActions() {

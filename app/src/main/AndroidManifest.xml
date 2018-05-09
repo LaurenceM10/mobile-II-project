@@ -19,7 +19,9 @@
         </activity>
         <activity android:name=".ui.activities.AddPersonActivity" />
         <activity android:name=".ui.activities.EditActivity" />
-        <activity android:name=".ui.activities.Login">
+        <activity
+            android:name=".ui.activities.Login"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

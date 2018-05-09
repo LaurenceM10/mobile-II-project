@@ -5,4 +5,6 @@
     <dimen name="person_item_height">70dp</dimen>
     <dimen name="person_item_vertical_margin">6dp</dimen>
     <dimen name="person_item_horizontal_margin">3dp</dimen>
+
+    <dimen name="activity_login_text_input_layout_margin">15dp</dimen>
 </resources>

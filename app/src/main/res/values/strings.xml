@@ -4,4 +4,6 @@
 
     <string name="hint_title">Escribe un título</string>
     <string name="hint_description">Escribe una descripción</string>
+    <string name="activity_login_username_hint">Nombre de usuario</string>
+    <string name="activity_login_password_hint">Contraseña</string>
 </resources>
