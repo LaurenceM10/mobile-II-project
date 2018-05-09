@@ -22,6 +22,8 @@ public interface ApiInterface {
     @GET("people")
     Call<List<PeopleModel>> listPeople();
 
+
+
     @POST("people")
     Call<PersonModel> createPerson(@Body CreatePerson person);
 
