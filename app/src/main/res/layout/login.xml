@@ -2,6 +2,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
+<<<<<<< HEAD
 
 
     <ScrollView
@@ -64,3 +65,68 @@
     </ScrollView>
 
 </LinearLayout>
+=======
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Se necesita iniciar sesión"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="10dp"
+        android:text="Usuario:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_username"
+        android:layout_marginLeft="35dp"
+        android:layout_toRightOf="@+id/tv_username"
+        android:hint="Nombre de usuario" >
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/tv_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_username"
+        android:layout_below="@+id/tv_username"
+        android:layout_marginTop="40dp"
+        android:text="Contraseña:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_password"
+        android:layout_alignLeft="@+id/et_username"
+        android:layout_alignRight="@+id/et_username"
+        android:hint="******************"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="94dp"
+        android:onClick="authenticateLogin"
+        android:text="Ingresar" />
+
+</RelativeLayout>
+>>>>>>> 5f9739a9babaeb8adb3d3611fb25c308e8949745
