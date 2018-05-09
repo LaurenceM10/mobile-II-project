@@ -1,3 +1,5 @@
+package com.apps.skadied.girlshub;
+
 import android.app.Application;
 
 import com.tumblr.remember.Remember;
