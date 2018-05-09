@@ -1,13 +1,18 @@
 package com.apps.skadied.girlshub.ui.adapters;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.apps.skadied.girlshub.R;
 import com.apps.skadied.girlshub.models.PeopleModel;
+import com.apps.skadied.girlshub.ui.activities.ProfileGirlActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
@@ -17,9 +22,11 @@ import java.util.List;
  */
 public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder> {
     private List<PeopleModel> girls;
+    private Context context;
 
-    public GirlAdapter(List<PeopleModel> girls) {
+    public GirlAdapter(List<PeopleModel> girls, Context context) {
         this.girls = girls;
+        this.context = context;
     }
 
     @Override
@@ -32,7 +39,19 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(GirlAdapter.ViewHolder holder, int position) {
-        PeopleModel peopleModel = girls.get(position);
+        final PeopleModel peopleModel = girls.get(position);
+
+        holder.itemGirl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProfileGirlActivity.class);
+                intent.putExtra("name", peopleModel.getName());
+                intent.putExtra("career", peopleModel.getCareer());
+                intent.putExtra("url", peopleModel.getPhoto_url());
+                intent.putExtra("age", peopleModel.getAge());
+                context.startActivity(intent);
+            }
+        });
 
         holder.picture.setImageURI(peopleModel.getPhoto_url());
         holder.username.setText(peopleModel.getName());
@@ -46,6 +65,7 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        LinearLayout itemGirl;
         SimpleDraweeView picture;
         TextView username;
         TextView age;
@@ -53,6 +73,7 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
+            itemGirl = itemView.findViewById(R.id.item_girl);
             picture = itemView.findViewById(R.id.picture);
             username = itemView.findViewById(R.id.username);
             age = itemView.findViewById(R.id.age);

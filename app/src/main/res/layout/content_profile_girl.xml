@@ -9,6 +9,76 @@
     tools:context=".ui.activities.ProfileGirlActivity"
     tools:showIn="@layout/activity_profile_girl">
 
-    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:placeholderImage="@color/colorPrimary" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/picture"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="38dp"
+            app:placeholderImage="@color/placeholderImage"
+            app:roundedCornerRadius="100dp"
+            app:roundingBorderColor="@color/white"
+            app:roundingBorderWidth="2dp" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="161dp"
+            android:gravity="center"
+            android:text="Ashley Zeledón"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Datos personales"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/career"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider" />
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
 </LinearLayout>
