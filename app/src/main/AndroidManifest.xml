@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".ui.activities.AddPersonActivity" />
         <activity android:name=".ui.activities.EditActivity"></activity>
+        <activity android:name=".ui.activities.Login"></activity>
     </application>
 
 </manifest>

@@ -2,8 +2,10 @@ package com.apps.skadied.girlshub.api;
 
 import com.apps.skadied.girlshub.models.CreateLike;
 import com.apps.skadied.girlshub.models.CreatePerson;
+import com.apps.skadied.girlshub.models.UserModel;
 import com.apps.skadied.girlshub.models.LikeModel;
 import com.apps.skadied.girlshub.models.PersonModel;
+import com.apps.skadied.girlshub.models.AccessTokenModel;
 
 import java.util.List;
 
@@ -14,10 +16,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
-
-/**
- * Created by Administrador on 6/3/2018.
- */
 
 public interface ApiInterface {
     @GET("people")
@@ -41,7 +39,10 @@ public interface ApiInterface {
     @DELETE("likes")
     Call<LikeModel> deleteLike(@Path("id") int id);
 
-    @POST("user")
-    Call<PersonModel> createUser(@Body CreatePerson person);
+    @POST("users")
+    Call<UserModel> createUser(@Body UserModel user);
+
+    @POST("Users/login")
+    Call<AccessTokenModel> login(@Body UserModel user);
 
 }
