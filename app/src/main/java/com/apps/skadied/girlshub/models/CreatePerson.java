@@ -10,6 +10,7 @@ public class CreatePerson {
     private String age;
     private String phone;
     private String address;
+    private String createdAt;
 
     public String getName() {
         return name;
@@ -50,4 +51,5 @@ public class CreatePerson {
     public void setAddress(String address) {
         this.address = address;
     }
+
 }

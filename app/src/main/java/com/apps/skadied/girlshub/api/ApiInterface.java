@@ -1,6 +1,8 @@
 package com.apps.skadied.girlshub.api;
 
+import com.apps.skadied.girlshub.models.CreateLike;
 import com.apps.skadied.girlshub.models.CreatePerson;
+import com.apps.skadied.girlshub.models.LikeModel;
 import com.apps.skadied.girlshub.models.PersonModel;
 
 import java.util.List;
@@ -29,4 +31,17 @@ public interface ApiInterface {
 
     @DELETE("people/{id}")
     Call<PersonModel> deletePerson(@Path("id") int id);
+
+    @GET("people/{id}/likes")
+    Call<List<PersonModel>> listLikes();
+
+    @POST("likes")
+    Call<LikeModel> createLike(@Body CreateLike like);
+
+    @DELETE("likes")
+    Call<LikeModel> deleteLike(@Path("id") int id);
+
+    @POST("user")
+    Call<PersonModel> createUser(@Body CreatePerson person);
+
 }

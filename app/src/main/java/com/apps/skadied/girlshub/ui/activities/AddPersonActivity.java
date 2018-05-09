@@ -97,12 +97,4 @@ public class AddPersonActivity extends AppCompatActivity {
         });
 
     }
-
-
-    /**
-     * To get the current date
-     */
-    private String getCurrentDate() {
-        return DateFormat.getDateInstance().format(new Date());
-    }
 }

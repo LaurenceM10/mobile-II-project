@@ -11,6 +11,7 @@ public class PersonModel {
     private String age;
     private String phone;
     private String address;
+    private String createdAt;
 
     public int getId() {
         return id;
@@ -59,4 +60,5 @@ public class PersonModel {
     public void setAddress(String address) {
         this.address = address;
     }
+
 }
