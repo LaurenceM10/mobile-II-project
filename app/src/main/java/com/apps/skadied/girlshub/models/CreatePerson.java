@@ -1,11 +1,10 @@
 package com.apps.skadied.girlshub.models;
-import io.realm.RealmObject;
 
 /**
  * Created by skadied on 05-07-18.
  */
 
-public class CreatePerson extends RealmObject {
+public class CreatePerson {
     private String name;
     private String photo_url;
     private String age;

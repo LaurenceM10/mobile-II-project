@@ -1,10 +1,9 @@
 package com.apps.skadied.girlshub.models;
-import io.realm.RealmObject;
 
 /**
  * Created by Lauren Steven on 9/5/2018.
  */
-public class PeopleModel extends RealmObject{
+public class PeopleModel {
     private int id;
     private String name;
     private String photo_url;
