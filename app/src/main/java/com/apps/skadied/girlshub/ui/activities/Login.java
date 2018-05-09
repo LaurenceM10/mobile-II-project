@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.apps.skadied.girlshub.R;
 import com.apps.skadied.girlshub.api.Api;
-import com.apps.skadied.girlshub.models.UserModel;
+import com.apps.skadied.girlshub.models.ClientModel;
 import com.apps.skadied.girlshub.models.AccessTokenModel;
 import com.tumblr.remember.Remember;
 
@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void fetchHttpRequest(){
-        UserModel user = new UserModel();
+        ClientModel user = new ClientModel();
 
         user.setUsername(username.getText().toString());
         user.setPassword(password.getText().toString());

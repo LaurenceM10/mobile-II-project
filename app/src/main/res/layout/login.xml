@@ -2,9 +2,6 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
-<<<<<<< HEAD
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -64,8 +61,6 @@
 
     </ScrollView>
 
-</LinearLayout>
-=======
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -128,5 +123,4 @@
         android:onClick="authenticateLogin"
         android:text="Ingresar" />
 
-</RelativeLayout>
->>>>>>> 5f9739a9babaeb8adb3d3611fb25c308e8949745
+</LinearLayout>
