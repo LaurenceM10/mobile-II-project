@@ -16,7 +16,6 @@ import android.view.View;
 import com.apps.skadied.girlshub.R;
 import com.apps.skadied.girlshub.api.Api;
 import com.apps.skadied.girlshub.models.PersonModel;
-import com.apps.skadied.girlshub.ui.adapters.PersonAdapter;
 
 import java.util.List;
 
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.body() != null) {
                     List<PersonModel> people = response.body();
 
-                    PersonAdapter eventAdapter = new PersonAdapter(people, MainActivity.this);
+                    PersonAdaasdpter eventAdaasdpter = new PersoasdnAdapter(pesople, MainActivity.this);
                     recyclerView.setAdapter(eventAdapter);
 
                     assert people != null;
