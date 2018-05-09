@@ -4,6 +4,7 @@ import com.apps.skadied.girlshub.models.ClientModel;
 import com.apps.skadied.girlshub.models.CreateLike;
 import com.apps.skadied.girlshub.models.CreatePerson;
 import com.apps.skadied.girlshub.models.LikeModel;
+import com.apps.skadied.girlshub.models.PeopleModel;
 import com.apps.skadied.girlshub.models.PersonModel;
 import com.apps.skadied.girlshub.models.AccessTokenModel;
 
@@ -19,7 +20,7 @@ import retrofit2.http.Path;
 
 public interface ApiInterface {
     @GET("people")
-    Call<List<PersonModel>> listPeople();
+    Call<List<PeopleModel>> listPeople();
 
     @POST("people")
     Call<PersonModel> createPerson(@Body CreatePerson person);

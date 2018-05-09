@@ -2,6 +2,7 @@ package com.apps.skadied.girlshub;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.tumblr.remember.Remember;
 
 /**
@@ -12,5 +13,6 @@ public class AndroidApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Remember.init(getApplicationContext(), "com.apps.skadied.girlshub");
+        Fresco.initialize(this);
     }
 }

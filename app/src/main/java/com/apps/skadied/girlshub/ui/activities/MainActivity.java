@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         configureViewElements();
         setupRecyclerView();
         initActions();
-        fetchHtppRequest();
+        //fetchHtppRequest();
     }
 
     /**
@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * To make an http request
      */
-    private void fetchHtppRequest() {
-        Call<List<PersonModel>> call = Api.instance().listPeople();
+    /*private void fetchHtppRequest() {
+        Call<List<PeoplenModel>> call = Api.instance().listPeople();
         call.enqueue(new Callback<List<PersonModel>>() {
             @Override
             public void onResponse(@NonNull Call<List<PersonModel>> call, @NonNull Response<List<PersonModel>> response) {
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Debug: ", "Error");
             }
         });
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -139,6 +139,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        fetchHtppRequest();
+        //fetchHtppRequest();
     }
 }

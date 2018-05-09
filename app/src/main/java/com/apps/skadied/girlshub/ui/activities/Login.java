@@ -1,5 +1,6 @@
 package com.apps.skadied.girlshub.ui.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,8 +13,8 @@ import android.widget.Toast;
 
 import com.apps.skadied.girlshub.R;
 import com.apps.skadied.girlshub.api.Api;
-import com.apps.skadied.girlshub.models.ClientModel;
 import com.apps.skadied.girlshub.models.AccessTokenModel;
+import com.apps.skadied.girlshub.models.ClientModel;
 import com.tumblr.remember.Remember;
 
 import retrofit2.Call;
@@ -28,6 +29,8 @@ public class Login extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button login;
+
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +48,19 @@ public class Login extends AppCompatActivity {
 
     private void initActions() {
         login.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            fetchHttpRequest();
-        }
-    });
+            @Override
+            public void onClick(View view) {
+                progressDialog = new ProgressDialog(Login.this, R.style.AppCompatAlertDialogStyle);
+                progressDialog.setMessage(getString(R.string.loding));
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+                fetchHttpRequest();
+            }
+        });
     }
 
     public void fetchHttpRequest(){
         ClientModel user = new ClientModel();
-
         user.setUsername(username.getText().toString());
         user.setPassword(password.getText().toString());
 
@@ -64,6 +70,8 @@ public class Login extends AppCompatActivity {
             public void onResponse(@NonNull Call<AccessTokenModel> call, @NonNull Response<AccessTokenModel> response) {
                 if (response.body() != null) {
                     Remember.putString("user", response.body().getUserId());
+                    progressDialog.dismiss();
+                    startActivity(new Intent(Login.this, Main2Activity.class));
                     finish();
                 } else {
                     Log.i("Debug", " Null Response");
