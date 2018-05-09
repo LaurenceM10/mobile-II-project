@@ -77,6 +77,7 @@ public class Login extends AppCompatActivity {
                     Log.i("Debug", " Null Response");
                     Toast.makeText(getApplicationContext(), "Por favor ingrese sus datos correctamente",
                             Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
                 }
             }
 

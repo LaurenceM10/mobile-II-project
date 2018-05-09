@@ -15,7 +15,7 @@
         <activity
             android:name=".ui.activities.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activities.AddPersonActivity" />
         <activity android:name=".ui.activities.EditActivity" />
         <activity
@@ -34,7 +34,8 @@
         <activity
             android:name=".ui.activities.ProfileGirlActivity"
             android:label="@string/title_activity_profile_girl"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.activities.SignupActivity"></activity>
     </application>
 
 </manifest>
