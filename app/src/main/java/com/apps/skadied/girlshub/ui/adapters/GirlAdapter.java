@@ -36,7 +36,7 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder> {
 
         holder.picture.setImageURI(peopleModel.getPhoto_url());
         holder.username.setText(peopleModel.getName());
-        holder.age.setText(peopleModel.getAge());
+        holder.age.setText(peopleModel.getAge().concat(" años"));
         holder.career.setText(peopleModel.getCareer());
     }
 
