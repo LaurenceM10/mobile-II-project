@@ -17,6 +17,7 @@ import com.apps.skadied.girlshub.R;
 import com.apps.skadied.girlshub.api.Api;
 import com.apps.skadied.girlshub.models.PeopleModel;
 import com.apps.skadied.girlshub.ui.adapters.GirlAdapter;
+import com.apps.skadied.girlshub.ui.adapters.GirlAdapterFromDatabase;
 import com.tumblr.remember.Remember;
 
 import java.util.List;
@@ -34,6 +35,8 @@ import retrofit2.Response;
 public class PeopleFragment extends Fragment {
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
+
+    private static final String IS_FIRST_TIME = "is_first_time";
 
     public PeopleFragment() {
         // Required empty public constructor
@@ -138,8 +141,8 @@ public class PeopleFragment extends Fragment {
 
         RealmResults<PeopleModel> results = query.findAll();
 
-        //GirlAdapter girlAdapter= new peopleFromDatabaseAdapter(results);
-        //recyclerView.setAdapter(GirlAdapter);
+        GirlAdapterFromDatabase girlAdapterFromDatabase = new GirlAdapterFromDatabase(results, getActivity());
+        recyclerView.setAdapter(girlAdapterFromDatabase);
     }
 
 }
