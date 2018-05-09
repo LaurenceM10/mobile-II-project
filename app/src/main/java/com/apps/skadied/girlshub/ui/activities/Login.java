@@ -25,7 +25,6 @@ import retrofit2.Response;
  */
 
 public class Login extends AppCompatActivity {
-
     private EditText username;
     private EditText password;
     private Button login;
@@ -33,7 +32,6 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Remember.init(getApplicationContext(), "com.apps.skadied.girlshub");
         setContentView(R.layout.login);
         initViews();
         initActions();
