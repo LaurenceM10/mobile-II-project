@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,11 +57,14 @@ public class PeopleFragment extends Fragment {
 
         initViews(view);
         setupRecyclerView();
+
         if (!isFirstTime()) {
             fetchGirls();
             storeFirstTime();
         } else {
+            Log.i("Step zero", "Debug");
             getFromDataBase();
+            progressBar.setVisibility(View.GONE);
         }
     }
 
@@ -97,10 +101,12 @@ public class PeopleFragment extends Fragment {
             @Override
             public void onResponse(@NonNull Call<List<PeopleModel>> call, @NonNull Response<List<PeopleModel>> response) {
                 if (response.body() != null){
+                    Log.i("Step one", "Debug");
                     progressBar.setVisibility(View.GONE);
                     recyclerView.setAdapter(new GirlAdapter(response.body(), getActivity()));
                     sync(response.body());
-                    getFromDataBase();
+
+                    Log.i("Step two", "Debug");
                 } else {
                     Toast.makeText(getActivity(), "No se ha podido mostrar los datos", Toast.LENGTH_SHORT).show();
                 }
@@ -108,7 +114,8 @@ public class PeopleFragment extends Fragment {
 
             @Override
             public void onFailure(@NonNull Call<List<PeopleModel>> call, @NonNull Throwable t) {
-
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(getActivity(), "Verifica tu conexión a internet", Toast.LENGTH_SHORT).show();
             }
         });
     }

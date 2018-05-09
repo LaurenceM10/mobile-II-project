@@ -62,7 +62,7 @@ public class GirlAdapterFromDatabase extends RecyclerView.Adapter<GirlAdapterFro
 
     @Override
     public int getItemCount() {
-        return 0;
+        return girls.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

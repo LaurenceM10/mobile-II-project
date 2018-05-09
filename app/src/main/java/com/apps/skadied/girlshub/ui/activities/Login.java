@@ -84,6 +84,8 @@ public class Login extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<AccessTokenModel> call, @NonNull Throwable t) {
                 Log.i("Debug", "Error");
+                Toast.makeText(Login.this, "Verifique su conexión a internet", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
             }
         });
     }
