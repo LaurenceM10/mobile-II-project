@@ -1,16 +1,16 @@
 package com.apps.skadied.girlshub.models;
+import io.realm.RealmObject;
 
 /**
  * Created by skadied on 05-07-18.
  */
 
-public class CreatePerson {
+public class CreatePerson extends RealmObject {
     private String name;
     private String photo_url;
     private String age;
     private String phone;
     private String address;
-    private String createdAt;
 
     public String getName() {
         return name;

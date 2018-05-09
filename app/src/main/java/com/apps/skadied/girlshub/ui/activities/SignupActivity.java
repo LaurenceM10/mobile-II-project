@@ -85,8 +85,6 @@ public class SignupActivity extends AppCompatActivity {
 
     public void doLogin(String username, String password){
         ClientModel user = new ClientModel();
-        user.setUsername(username);
-        user.setPassword(password);
 
         Call<AccessTokenModel> call = Api.instance().login(user);
         call.enqueue(new Callback<AccessTokenModel>() {
