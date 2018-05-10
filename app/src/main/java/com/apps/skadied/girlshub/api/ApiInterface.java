@@ -42,7 +42,7 @@ public interface ApiInterface {
     @DELETE("likes")
     Call<LikeModel> deleteLike(@Path("id") int id);
 
-    @POST("Client")
+    @POST("Clients")
     Call<ClientCreateModel> createClient(@Body ClientCreateModel client);
 
     @POST("Clients/login")
