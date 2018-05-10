@@ -1,5 +1,6 @@
 package com.apps.skadied.girlshub.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -12,6 +13,7 @@ import com.apps.skadied.girlshub.R;
 import com.apps.skadied.girlshub.api.Api;
 import com.apps.skadied.girlshub.models.CreatePerson;
 import com.apps.skadied.girlshub.models.PersonModel;
+import com.apps.skadied.girlshub.ui.fragments.PeopleFragment;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -21,11 +23,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddPersonActivity extends AppCompatActivity {
+    private Intent intent;
     private TextInputEditText name;
     private TextInputEditText photo_url;
     private TextInputEditText age;
-    private TextInputEditText phone;
-    private TextInputEditText address;
+    private TextInputEditText career;
     private Button save;
 
     @Override
@@ -37,6 +39,7 @@ public class AddPersonActivity extends AppCompatActivity {
         initActions();
     }
 
+
     /**
      * To init views
      */
@@ -44,8 +47,7 @@ public class AddPersonActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         photo_url = findViewById(R.id.photo_url);
         age = findViewById(R.id.age);
-        phone = findViewById(R.id.phone);
-        address = findViewById(R.id.address);
+        career = findViewById(R.id.career);
         save = findViewById(R.id.save);
     }
 
@@ -69,8 +71,7 @@ public class AddPersonActivity extends AppCompatActivity {
         person.setName(name.getText().toString());
         person.setPhoto_url(photo_url.getText().toString());
         person.setAge(age.getText().toString());
-        person.setPhone(phone.getText().toString());
-        person.setAddress(address.getText().toString());
+        person.setCareer(career.getText().toString());
 
         Call<PersonModel> call = Api.instance().createPerson(person);
         call.enqueue(new Callback<PersonModel>() {
@@ -81,8 +82,7 @@ public class AddPersonActivity extends AppCompatActivity {
                     Log.i("name: ", response.body().getName());
                     Log.i("photo_url: ", response.body().getPhoto_url());
                     Log.i("age: ", response.body().getAge());
-                    Log.i("phone: ", response.body().getPhone());
-                    Log.i("address: ", response.body().getAddress());
+                    Log.i("career: ", response.body().getCareer());
 
                     finish();
                 } else {

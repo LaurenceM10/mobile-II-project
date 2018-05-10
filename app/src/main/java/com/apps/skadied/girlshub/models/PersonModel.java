@@ -9,9 +9,7 @@ public class PersonModel {
     private String name;
     private String photo_url;
     private String age;
-    private String phone;
-    private String address;
-    private String createdAt;
+    private String career;
 
     public int getId() {
         return id;
@@ -45,20 +43,10 @@ public class PersonModel {
         this.age = age;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getCareer() {
+        return career;
     }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setCareer(String career) {
+        this.career = career;
     }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
 }

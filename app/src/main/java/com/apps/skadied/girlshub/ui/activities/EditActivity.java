@@ -72,8 +72,7 @@ public class EditActivity extends AppCompatActivity {
         CreatePerson person = new CreatePerson();
         person.setPhoto_url(photo_url.getText().toString());
         person.setAge(age.getText().toString());
-        person.setPhone(phone.getText().toString());
-        person.setAddress(address.getText().toString());
+        //person.setCareer();
 
         Call<PersonModel> call = Api.instance().updatePerson(id, person);
         call.enqueue(new Callback<PersonModel>() {

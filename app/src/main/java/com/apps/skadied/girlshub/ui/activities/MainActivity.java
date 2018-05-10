@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         configureViewElements();
         setupRecyclerView();
         initActions();
-        //fetchHtppRequest();
     }
 
     /**
@@ -78,41 +77,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * To make an http request
-     */
-    /*private void fetchHtppRequest() {
-        Call<List<PeoplenModel>> call = Api.instance().listPeople();
-        call.enqueue(new Callback<List<PersonModel>>() {
-            @Override
-            public void onResponse(@NonNull Call<List<PersonModel>> call, @NonNull Response<List<PersonModel>> response) {
-                if (response.body() != null) {
-                    List<PersonModel> people = response.body();
-
-                    PersonAdaasdpter eventAdaasdpter = new PersoasdnAdapter(pesople, MainActivity.this);
-                    recyclerView.setAdapter(eventAdapter);
-
-                    assert people != null;
-                    for (PersonModel personModel : people) {
-                        Log.i("name: ", personModel.getName());
-                        Log.i("photo_url: ", personModel.getPhoto_url());
-                        Log.i("age: ", personModel.getAge());
-                        Log.i("phone: ", personModel.getPhone());
-                        Log.i("address: ", personModel.getAddress());
-                        Log.i("-----------------", "");
-                    }
-                } else {
-                    Log.i("Debug: ", "Null response");
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<List<PersonModel>> call, @NonNull Throwable t) {
-                Log.e("Debug: ", "Error");
-            }
-        });
-    }*/
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -138,6 +102,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //fetchHtppRequest();
     }
 }
