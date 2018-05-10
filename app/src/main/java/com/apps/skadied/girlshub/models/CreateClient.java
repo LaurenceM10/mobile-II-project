@@ -3,7 +3,7 @@ package com.apps.skadied.girlshub.models;
 /**
  * Created by Lauren Steven on 9/5/2018.
  */
-public class ClientCreateModel {
+public class CreateClient {
     private String username;
     private String email;
     private String password;

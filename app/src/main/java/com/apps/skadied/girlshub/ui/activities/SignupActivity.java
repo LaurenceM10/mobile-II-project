@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.apps.skadied.girlshub.R;
 import com.apps.skadied.girlshub.api.Api;
 import com.apps.skadied.girlshub.models.AccessTokenModel;
-import com.apps.skadied.girlshub.models.ClientCreateModel;
+import com.apps.skadied.girlshub.models.CreateClient;
 import com.apps.skadied.girlshub.models.ClientModel;
 import com.tumblr.remember.Remember;
 
@@ -65,15 +65,15 @@ public class SignupActivity extends AppCompatActivity {
 
 
     private void fetchHttpRequest(){
-        ClientCreateModel clientModel = new ClientCreateModel();
+        CreateClient clientModel = new CreateClient();
         clientModel.setUsername(username.getText().toString());
         clientModel.setEmail(email.getText().toString());
         clientModel.setPassword(password.getText().toString());
 
-        Call<ClientCreateModel> call = Api.instance().createClient(clientModel);
-        call.enqueue(new Callback<ClientCreateModel>() {
+        Call<CreateClient> call = Api.instance().createClient(clientModel);
+        call.enqueue(new Callback<CreateClient>() {
             @Override
-            public void onResponse(@NonNull Call<ClientCreateModel> call, @NonNull Response<ClientCreateModel> response) {
+            public void onResponse(@NonNull Call<CreateClient> call, @NonNull Response<CreateClient> response) {
                 if (response.body() != null){
                     //If the account is created, do login
                     doLogin(username.getText().toString(), password.getText().toString());
@@ -84,7 +84,7 @@ public class SignupActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NonNull Call<ClientCreateModel> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<CreateClient> call, @NonNull Throwable t) {
                 Toast.makeText(SignupActivity.this, "Error al crear su cuenta", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }

@@ -43,6 +43,12 @@ public class PeopleFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+            fetchGirls();
+            storeFirstTime();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,10 +66,10 @@ public class PeopleFragment extends Fragment {
 
         if (!isFirstTime()) {
             fetchGirls();
-            storeFirstTime();
         } else {
             Log.i("Step zero", "Debug");
-            getFromDataBase();
+            fetchGirls();
+            storeFirstTime();
             progressBar.setVisibility(View.GONE);
         }
     }
@@ -115,7 +121,7 @@ public class PeopleFragment extends Fragment {
             @Override
             public void onFailure(@NonNull Call<List<PeopleModel>> call, @NonNull Throwable t) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(getActivity(), "Verifica tu conexión a internet", Toast.LENGTH_SHORT).show();
+                getFromDataBase();
             }
         });
     }

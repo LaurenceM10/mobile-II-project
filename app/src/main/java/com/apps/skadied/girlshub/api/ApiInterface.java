@@ -1,6 +1,6 @@
 package com.apps.skadied.girlshub.api;
 
-import com.apps.skadied.girlshub.models.ClientCreateModel;
+import com.apps.skadied.girlshub.models.CreateClient;
 import com.apps.skadied.girlshub.models.ClientModel;
 import com.apps.skadied.girlshub.models.CreateLike;
 import com.apps.skadied.girlshub.models.CreatePerson;
@@ -23,7 +23,6 @@ public interface ApiInterface {
     @GET("people")
     Call<List<PeopleModel>> listPeople();
 
-
     @POST("people")
     Call<PersonModel> createPerson(@Body CreatePerson person);
 
@@ -43,7 +42,7 @@ public interface ApiInterface {
     Call<LikeModel> deleteLike(@Path("id") int id);
 
     @POST("Clients")
-    Call<ClientCreateModel> createClient(@Body ClientCreateModel client);
+    Call<CreateClient> createClient(@Body CreateClient client);
 
     @POST("Clients/login")
     Call<AccessTokenModel> login(@Body ClientModel client);
