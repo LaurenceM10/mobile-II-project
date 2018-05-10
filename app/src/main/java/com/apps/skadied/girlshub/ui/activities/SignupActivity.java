@@ -2,9 +2,9 @@ package com.apps.skadied.girlshub.ui.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.apps.skadied.girlshub.R;
 import com.apps.skadied.girlshub.api.Api;
 import com.apps.skadied.girlshub.models.AccessTokenModel;
+import com.apps.skadied.girlshub.models.ClientCreateModel;
 import com.apps.skadied.girlshub.models.ClientModel;
 import com.tumblr.remember.Remember;
 
@@ -24,6 +25,7 @@ import retrofit2.Response;
 public class SignupActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
+    private EditText email;
     private Button signup;
 
     private ProgressDialog progressDialog;
@@ -40,6 +42,7 @@ public class SignupActivity extends AppCompatActivity {
     private void initViews() {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
+        email = findViewById(R.id.email);
         signup = findViewById(R.id.signup);
     }
 
@@ -47,25 +50,30 @@ public class SignupActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressDialog = new ProgressDialog(SignupActivity.this, R.style.AppCompatAlertDialogStyle);
-                progressDialog.setMessage(getString(R.string.loding));
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-                fetchHttpRequest();
+                if(username.getText().toString().isEmpty() || email.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
+                    Toast.makeText(SignupActivity.this, "Debes completar todos los campos", Toast.LENGTH_SHORT).show();
+                } else {
+                    progressDialog = new ProgressDialog(SignupActivity.this, R.style.AppCompatAlertDialogStyle);
+                    progressDialog.setMessage(getString(R.string.signup_loading));
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
+                    fetchHttpRequest();
+                }
             }
         });
     }
 
 
     private void fetchHttpRequest(){
-        ClientModel clientModel = new ClientModel();
+        ClientCreateModel clientModel = new ClientCreateModel();
         clientModel.setUsername(username.getText().toString());
+        clientModel.setEmail(email.getText().toString());
         clientModel.setPassword(password.getText().toString());
 
-        Call<ClientModel> call = Api.instance().createClient(clientModel);
-        call.enqueue(new Callback<ClientModel>() {
+        Call<ClientCreateModel> call = Api.instance().createClient(clientModel);
+        call.enqueue(new Callback<ClientCreateModel>() {
             @Override
-            public void onResponse(@NonNull Call<ClientModel> call, @NonNull Response<ClientModel> response) {
+            public void onResponse(@NonNull Call<ClientCreateModel> call, @NonNull Response<ClientCreateModel> response) {
                 if (response.body() != null){
                     //If the account is created, do login
                     doLogin(username.getText().toString(), password.getText().toString());
@@ -76,7 +84,7 @@ public class SignupActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NonNull Call<ClientModel> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<ClientCreateModel> call, @NonNull Throwable t) {
                 Toast.makeText(SignupActivity.this, "Error al crear su cuenta", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }

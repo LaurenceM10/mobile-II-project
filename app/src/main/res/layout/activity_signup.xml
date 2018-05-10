@@ -28,7 +28,24 @@
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email_string"
+                    android:hint="Nombre de usuario"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/textColor"
+                    android:textSize="16sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_login_text_input_layout_margin"
+                android:theme="@style/TextLabel">
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Correo electrónico"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />

@@ -23,4 +23,5 @@
     <string name="loding">Iniciando Sesión</string>
     <string name="title_activity_profile_girl">Perfil</string>
     <string name="email_string">Correo electrnico</string>
+    <string name="signup_loading">Creando cuenta</string>
 </resources>

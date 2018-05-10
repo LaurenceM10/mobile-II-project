@@ -29,6 +29,7 @@ public class Login extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button login;
+    private Button signup;
 
     private ProgressDialog progressDialog;
 
@@ -44,6 +45,7 @@ public class Login extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
+        signup = findViewById(R.id.signup);
     }
 
     private void initActions() {
@@ -55,6 +57,13 @@ public class Login extends AppCompatActivity {
                 progressDialog.setCancelable(false);
                 progressDialog.show();
                 fetchHttpRequest();
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, SignupActivity.class));
             }
         });
     }

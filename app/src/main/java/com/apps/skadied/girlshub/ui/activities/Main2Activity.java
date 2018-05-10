@@ -97,8 +97,6 @@ public class Main2Activity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             fragmentClass = PeopleFragment.class;
-        } else if (id == R.id.nav_share) {
-            Toast.makeText(this, "Working on this", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_send) {
             startActivity(new Intent(Main2Activity.this, Login.class));
             this.finish();
